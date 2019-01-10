@@ -5,7 +5,6 @@ class HxTest extends HTMLElement{
         let para=document.createElement("p");
         let attrPara=document.createElement("p");
         attrPara.className="attr-para"
-        attrPara.textContent=`Attr 'test' is ${this.getAttribute("test")}`;
         para.textContent="Hello World!";
         shadow.appendChild(para);
         shadow.appendChild(attrPara);
@@ -15,13 +14,17 @@ class HxTest extends HTMLElement{
     }
     connectedCallback(){
         console.log("hxtest connected");
+        // attrPara.textContent=`Attr 'test' is ${this.getAttribute("test")}`;
+    }
+    static get observedAttributes() {
+        return ['test'];
     }
     attributeChangedCallback(name, oldValue, newValue){
         console.log(`hxtest attr "${name}" has changed from "${oldValue}" to "${newValue}"`);
-        const shadow=this.attachShadow({mode:"open"});
+        const shadow=this.shadowRoot;
         const attrPara=shadow.querySelector(".attr-para");
-        if(name=="test")
-            attrPara.textContent=`Attr 'test' is ${newValue}`; 
+        attrPara.textContent=`Attr 'test' is ${this.getAttribute("test")}`; 
     }
 }
 customElements.define("hx-test",HxTest);
+// const Element=document.createElement("div");
