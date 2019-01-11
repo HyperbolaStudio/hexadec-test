@@ -6,7 +6,7 @@ class HxTest extends HTMLElement{
         let attrPara=document.createElement("p");
         let style=document.createElement("style");
         attrPara.className="attr-para";
-        para.textContent="Hello World! Change the CSS property '--hx-test-hov-color' and see!";
+        para.textContent="Hello World! Change the CSS property '--hx-test-hov-color' and hover me!";
         style.textContent= `
             p:hover{
                 background-color: var(--hx-test-hov-color);
