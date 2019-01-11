@@ -2,10 +2,27 @@
     <head>
         <meta charset="utf-8">
         <title>Web Component Demo</title>
+        <script>
+            if(customElements){
+                document.querySelector("#alert").style.display="none";
+            }
+        </script>
         <script src="webcomponents-bundle.js"></script>
         <script src="hxtest.js"></script>
+        <style>
+            #alert{
+                border: dotted 2px #000;
+            }
+        </style>
     </head>
     <body>
+        <div id="alert">
+                每去适配一个古老浏览器，就会有至少一名程序员绞尽脑汁工作甚至不惜熬夜加班<br>
+                而程序员每一次加班，都增加了自己猝死的风险<br>
+                救救程序员！<br>
+                <a href="https://www.zhihu.com/question/302208766/answer/531239119">techmoe的回答 - 知乎</a><br>
+                (当前浏览器不支持Custom Elements，可能无法按照预期效果展示)
+        </div>
         <hx-test test="aa">
             <style>
                 hx-test{
