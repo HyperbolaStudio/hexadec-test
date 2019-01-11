@@ -28,7 +28,6 @@ class HxTest extends HTMLElement{
     }
     connectedCallback(){
         console.log("hxtest connected");
-        // attrPara.textContent=`Attr 'test' is ${this.getAttribute("test")}`;
     }
     static get observedAttributes() {
         return ['test','hov-color'];
@@ -36,7 +35,6 @@ class HxTest extends HTMLElement{
     attributeChangedCallback(name, oldValue, newValue){
         console.log(`hxtest attr "${name}" has changed from "${oldValue}" to "${newValue}"`);
         const shadow=this.shadowRoot;
-        //const style=this.querySelector("style");
         if(name=='test'){
             const attrPara=shadow.querySelector(".attr-para");
             attrPara.textContent=`Attr 'test' is ${this.getAttribute("test")}`;     
@@ -44,4 +42,3 @@ class HxTest extends HTMLElement{
     }
 }
 customElements.define("hx-test",HxTest);
-// const Element=document.createElement("div");
