@@ -5,6 +5,7 @@
         <script src="has_custom_element.js"></script>
         <script src="webcomponents-bundle.js"></script>
         <script src="hxtest.js"></script>
+        <script src="ia.js"></script>
         <style>
             #alert{
                 border: dotted 2px #000;
@@ -15,6 +16,7 @@
         </style>
     </head>
     <body>
+        <h1>HxTest</h1>
         <hx-test test="aa">
             <style>
                 hx-test{
@@ -23,5 +25,9 @@
             </style>
             <div slot="test">Hello Slot!</div>
         </hx-test>
+        <h1>Hx Interaction area</h1>
+        <hx-ia>
+            <div slot="area">Hello World!</div>
+        </hx-ia>
     </body>
 </html>
