@@ -13,14 +13,15 @@ class HxIA extends HTMLElement{
                 border:none;
                 transition:box-shadow 0.2s,border 0.2s;
             }
-            .container:hover{
-                box-shadow:0 0 1px 1px var(--hx-ia-act-color);
+            @media(min-width:800px){
+                .container:hover{
+                    box-shadow:0 0 1px 1px var(--hx-ia-act-color,var(--hx-global-theme-color));
+                }
             }
             .container:active{
-                box-shadow:0 0 4px 1px var(--hx-ia-act-color);
+                box-shadow:0 0 4px 1px var(--hx-ia-act-color,var(--hx-global-theme-color));
             }
         `;
-        // container.appendChild(mask);
         let areaSlot=document.createElement("slot");
         areaSlot.setAttribute("name","area");
         container.appendChild(areaSlot);
