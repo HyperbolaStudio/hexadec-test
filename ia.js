@@ -4,12 +4,27 @@ class HxIA extends HTMLElement{
         const shadow=this.attachShadow({mode:"open"});
         let container=document.createElement("div");
         container.className="container";
-        let mask=document.createElement("div");
-        mask.className="mask";
-        container.appendChild(mask);
+        let style=document.createElement("style");
+        style.textContent=`
+            .container{
+                position:relative;
+                background:var(--hx-ia-bgcolor,var(--hx-global-bgcolor));
+                color:var(--hx-ia-fgcolor,var(--hx-global-fgcolor));
+                border:none;
+                transition:box-shadow 0.2s,border 0.2s;
+            }
+            .container:hover{
+                box-shadow:0 0 1px 1px var(--hx-ia-act-color);
+            }
+            .container:active{
+                box-shadow:0 0 4px 1px var(--hx-ia-act-color);
+            }
+        `;
+        // container.appendChild(mask);
         let areaSlot=document.createElement("slot");
         areaSlot.setAttribute("name","area");
         container.appendChild(areaSlot);
+        shadow.appendChild(style);
         shadow.appendChild(container);
     }
 }
